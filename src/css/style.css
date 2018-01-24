@@ -95,8 +95,20 @@ p {
   margin: 0;
 }
 
-p:last-child {
+/* p:last-child {
   margin-bottom: 5px;
+} */
+
+.lead {
+  margin-bottom: 32px;
+}
+
+main {
+  line-height: 1.6;
+}
+
+main h2 {
+  margin-bottom: 16px;
 }
 
 .container {
@@ -104,6 +116,10 @@ p:last-child {
   max-width: 1200px;
   padding-left: 16px;
   padding-right: 16px;
+}
+
+.container--narrow {
+  max-width: 60ch;
 }
 
 .hero {
