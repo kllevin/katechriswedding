@@ -3,19 +3,25 @@
   "version": "1.0.0",
   "description": "Chris ❤️ Kate are getting hitched!",
   "homepage": "http://www.chrisandkategethitched.com",
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "cname": "chrisandkategethitched.com",
+    "prep": ["build:*"],
+    "noprompt": false
+  },
   "scripts": {
     "clean": "rimraf dist",
     "mkdist": "mkdir dist dist/img dist/css",
     "css:compress": "csso src/css/style.css -o dist/css/style.css",
-    "css:autoprefixer":
-      "postcss -u autoprefixer -r dist/css/* --config 'postcss.config.js'",
+    "css:autoprefixer": "postcss -u autoprefixer -r dist/css/*",
     "build:css": "run-s -n css:*",
     "build:html":
       "html-minifier -o dist/index.html src/index.html --collapseInlineTagWhitespace --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
     "build:img": "imagemin src/img/** --out-dir=dist/img",
     "prebuild": "run-s clean mkdist",
     "precommit": "npm run build",
-    "build": "run-s -n build:*"
+    "build": "run-s -n build:*",
+    "deploy": "npm run gh-pages-deploy"
   },
   "repository": {
     "type": "git",
@@ -29,6 +35,7 @@
     "autoprefixer": "^7.2.5",
     "csso": "^3.5.0",
     "csso-cli": "^1.1.0",
+    "gh-pages-deploy": "^0.4.2",
     "html-minifier": "^3.5.8",
     "husky": "^0.14.3",
     "imagemin-cli": "^3.0.0",
