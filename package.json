@@ -1,0 +1,35 @@
+{
+  "name": "kate-and-chris-wedding",
+  "version": "1.0.0",
+  "description": "Kate ❤️ Chris are getting married!",
+  "homepage": "http://www.chrisandkategethitched.com",
+  "scripts": {
+    "clean": "rimraf dist",
+    "mkdist": "mkdir dist dist/img dist/css",
+    "build:css": "csso src/css/style.css -o dist/css/style.css",
+    "build:html": "html-minifier -o dist/index.html src/index.html --collapseInlineTagWhitespace --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
+    "build:img": "imagemin src/img/** --out-dir=dist/img",
+    "prebuild": "run-s clean mkdist",
+    "precommit": "npm run build",
+    "build": "run-s -n build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kllevin/katechriswedding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kllevin/katechriswedding/issues"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "csso": "^3.5.0",
+    "csso-cli": "^1.1.0",
+    "html-minifier": "^3.5.8",
+    "husky": "^0.14.3",
+    "imagemin-cli": "^3.0.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.2",
+    "svgo": "^1.0.3"
+  }
+}
